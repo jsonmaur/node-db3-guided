@@ -1,6 +1,3 @@
-# Mac Files
-.DS_Store
-
 # Logs
 logs
 *.log
@@ -81,3 +78,9 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+# Mac cruft
+.DS_Store
+
+# VSCode
+.vscode
