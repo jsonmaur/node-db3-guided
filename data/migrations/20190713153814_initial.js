@@ -1,17 +1,15 @@
 exports.up = async function(knex) {
-	await knex.schema.createTable("users", (tbl) => {
-		tbl.increments()
-		tbl.text("username", 128)
-			.unique()
-			.notNullable()
+	await knex.schema.createTable("users", (table) => {
+		table.increments("id")
+		table.text("username", 128).unique().notNull()
 	})
 	
-	await knex.schema.createTable("posts", (tbl) => {
-		tbl.increments()
-		tbl.text("contents")
-		tbl.integer("user_id")
+	await knex.schema.createTable("posts", (table) => {
+		table.increments("id")
+		table.text("contents")
+		table.integer("user_id")
 			.unsigned()
-			.notNullable()
+			.notNull()
 			.references("id")
 			.inTable("users")
 			.onUpdate("CASCADE")
